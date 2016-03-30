@@ -69,7 +69,7 @@ namespace DataStorageQueueSample
             // 演示高级的方法，例如处理批量的消息
             ProcessBatchOfMessagesAsync(queue).Wait();
 
-            // 当删除一个队列时，重新创建相同名称的队列需要等待几秒钟的时间 - 因此为了快速演练示例队列并没有删除。如果你像删除队列，请取消下面代码的注释
+            // 当删除一个队列时，重新创建相同名称的队列需要等待几秒钟的时间 - 因此为了快速演练示例队列并没有删除。如果你想删除队列，请取消下面代码的注释
             //DeleteQueueAsync(queue).Wait();
 
             Console.WriteLine("按任意键退出");
@@ -170,7 +170,7 @@ namespace DataStorageQueueSample
                 await queue.AddMessageAsync(new CloudQueueMessage(string.Format("{0} - {1}", i, "Hello World")));
             }
 
-            // FetchAttributes方法询问队列服务检索队列的属性，包括消息计数
+            // FetchAttributes 方法可请求队列服务检索队列属性，包括消息计数
             Console.WriteLine("8. 获得队列的长度");
             queue.FetchAttributes();
             int? cachedMessageCount = queue.ApproximateMessageCount;
