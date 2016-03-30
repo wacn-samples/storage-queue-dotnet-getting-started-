@@ -24,7 +24,7 @@ author: jasonnewyork
 使用Azure存储服务来运行这个示例
 
 1. 打来AppConfig文件然后使用第二个连接字符串。
-2. 在Azure门户网站上创建存储账号，然后修改App.Config的存储账号和存储密钥。更多详细内容请阅读：https://www.azure.cn/documentation/articles/storage-dotnet-how-to-use-blobs/
+2. 在Azure门户网站上创建存储账号，然后修改App.Config的存储账号和存储密钥。
 3. 设置断点，使用F10运行该示例。
 
 ## 参考文档
