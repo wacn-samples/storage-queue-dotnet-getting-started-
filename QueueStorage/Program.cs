@@ -25,7 +25,7 @@ namespace DataStorageQueueSample
     /// Azure队列服务示例 - 队列服务为工作流和云服务松耦合间组建的沟通提供可靠消息机制。这个示例演示了如何执行一般的任务，包括
     /// 插入、查看、获取和删除队列信息及创建和删除队列。  
     /// 
-    /// 注意：这个示例使用.NET 4.5异步编程模型来演示如何使用storage client libraries异步API调用存储服务。 在实际的应用中这种方式
+    /// 注意：这个示例使用.NET 4.5异步编程模型来演示如何使用存储客户库的异步API调用存储服务。 在实际的应用中这种方式
     /// 可以提高程序的响应速度。调用存储服务只要添加关键字await为前缀即可。
     /// 
     /// 参考文档: 
@@ -49,7 +49,7 @@ namespace DataStorageQueueSample
         // 
         // 使用Azure存储服务来运行这个示例
         //      1. 打来AppConfig文件然后使用第二个连接字符串。
-        //      2. 在Azure门户网站上创建存储账号，然后修改App.Config的存储账号和存储密钥。更多详细内容请阅读：https://www.azure.cn/documentation/articles/storage-dotnet-how-to-use-blobs/
+        //      2. 在Azure门户网站上创建存储账号，然后修改App.Config的存储账号和存储密钥。更多详细内容请阅读：https://www.azure.cn/documentation/articles/storage-dotnet-how-to-use-queues/
         //      3. 设置断点，然后使用F10按钮运行这个示例. 
         // 
         // *************************************************************************************************************************
@@ -83,7 +83,7 @@ namespace DataStorageQueueSample
         /// <returns>一个CloudQueue对象</returns>
         private static async Task<CloudQueue> CreateQueueAsync()
         {
-            // 通过连接字符串找到存储账号的信息
+            // 通过连接字符串检索存储账号的信息
             CloudStorageAccount storageAccount = CreateStorageAccountFromConnectionString(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
             // 创建一个queueClient来和队列服务交互
