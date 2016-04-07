@@ -25,32 +25,32 @@ namespace DataStorageQueueSample
     /// Azure队列服务示例 - 队列服务为工作流和云服务松耦合间组建的沟通提供可靠消息机制。这个示例演示了如何执行一般的任务，包括
     /// 插入、查看、获取和删除队列信息及创建和删除队列。  
     /// 
-    /// 注意：这个示例使用.NET 4.5异步编程模型来演示如何使用存储客户库的异步API调用存储服务。 在实际的应用中这种方式
-    /// 可以提高程序的响应速度。调用存储服务只要添加关键字await为前缀即可。
+    /// 注意：这个示例使用.NET 4.5异步编程模型来演示如何使用存储客户端库的异步API调用存储服务。 在实际的应用中这种方式
+    /// 可以提高程序的响应速度。存储服务需要在调用时前面添加关键字await。
     /// 
     /// 参考文档: 
     /// - 什么是存储账号- https://www.azure.cn/documentation/articles/storage-create-storage-account/
     /// - 队列服务起步 - https://www.azure.cn/documentation/articles/storage-dotnet-how-to-use-queues/
     /// - 队列服务概念 - https://msdn.microsoft.com/zh-cn/library/dd179353.aspx
     /// - 队列服务REST API - https://msdn.microsoft.com/zh-cn/library/dd179363.aspx
-    /// - 队列服务 C# API - http://go.microsoft.com/fwlink/?LinkID=398944
+    /// - 队列服务 C# API - https://msdn.microsoft.com/zh-cn/library/azure/mt347887.aspx
     /// - 存储模拟器 - https://www.azure.cn/documentation/articles/storage-use-emulator/
     /// - 使用 Async 和 Await异步编程  - http://msdn.microsoft.com/zh-cn/library/hh191443.aspx
     /// </summary>
     public class Program
     {
         // *************************************************************************************************************************
-        // 使用说明: 这个示例可以在Azure存储模拟器（存储模拟器是Azure SDK安装的一部分）上运行，或者通过修改App.Config文档中的存储账号和存储密匙
-        // 的方式针对存储服务来使用。      
+        // 使用说明: 这个示例可以在Azure存储模拟器（存储模拟器是Azure SDK安装的一部分）上运行，或者通过修改App.Config文档中的
+        // AccountName（存储账号）和Key（存储密钥）的方式来使用。 
         // 
         // 使用Azure存储模拟器来运行这个示例  (默认选项)
-        //      1. 点击开始按钮或者是键盘的Windows键，然后输入“Azure Storage Emulator”来寻找Azure存储模拟器，之后点击运行。       
-        //      2. 设置断点，然后使用F10按钮运行这个示例. 
+        // 1. 点击开始按钮或者是键盘的Windows键，然后输入“Azure Storage Emulator”来寻找Azure存储模拟器，之后点击运行。       
+        // 2. 设置断点，然后使用F10按钮运行这个示例. 
         // 
         // 使用Azure存储服务来运行这个示例
-        //      1. 打来AppConfig文件然后使用第二个连接字符串。
-        //      2. 在Azure门户网站上创建存储账号，然后修改App.Config的存储账号和存储密钥。更多详细内容请阅读：https://www.azure.cn/documentation/articles/storage-dotnet-how-to-use-queues/
-        //      3. 设置断点，然后使用F10按钮运行这个示例. 
+        // 1. 打开app.config文件, 注释掉模拟器的那一部分连接字符串(UseDevelopmentStorage=True) ，然后删掉存储服务的连接字符串的注释 (AccountName=[]...)。
+        // 2. 在Azure门户网站上创建存储账号，然后修改App.Config的 [AccountName]（存储账号）和 [AccountKey]（存储密钥）。
+        // 3. 设置断点，使用F10运行该示例。
         // 
         // *************************************************************************************************************************
         public static void Main(string[] args)
